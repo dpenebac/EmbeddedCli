@@ -1,8 +1,8 @@
-# µCLI
+# µRun
 
 ## Overview
 
-µCLI is a lightweight library designed to streamline the integration of a command-line interface (CLI) into embedded projects utilizing microcontrollers. The primary objective is to facilitate seamless communication between the microcontroller and an external PC through commonly available interfaces such as UART or Ethernet.
+µRun is a small tool that helps easily run functions in embedded projects with microcontrollers. It makes it simple to trigger specific actions from a computer, connecting to the microcontroller through common interfaces like UART or Ethernet.
 
 ## Background
 
@@ -10,14 +10,14 @@ I ran into an issue where I had unit test code within a soft-processor in an FPG
 
 ## Goal
 
-The goal of µCLI is to provide a readily deployable solution for incorporating a CLI into any microcontroller-based project with minimal overhead. By leveraging a standard debug interface like UART, developers can enable external control and monitoring of microcontroller functions.
+The goal of µRun is to provide a readily deployable solution for incorporating a CLI into any microcontroller-based project with minimal overhead. By leveraging a standard debug interface like UART, developers can enable external control and monitoring of microcontroller functions.
 
 ## Usage TODO
 
-1. Include the µCLI library in your project.
+1. Include the µRun library in your project.
 2. Configure the debug interface (UART, Ethernet, etc.) for communication with the external PC.
 3. ...
 
 ## License
 
-µCLI is licensed under the MIT License.
+µRun is licensed under the MIT License.
