@@ -2,7 +2,7 @@
 
 ## Overview
 
-EmbeddedCli is a lightweight library designed to streamline the integration of a command-line interface (CLI) into embedded projects utilizing microcontrollers. The primary objective is to facilitate seamless communication between the microcontroller and an external PC through commonly available interfaces such as UART or Ethernet.
+µCLI is a lightweight library designed to streamline the integration of a command-line interface (CLI) into embedded projects utilizing microcontrollers. The primary objective is to facilitate seamless communication between the microcontroller and an external PC through commonly available interfaces such as UART or Ethernet.
 
 ## Background
 
@@ -20,4 +20,4 @@ The goal of µCLI is to provide a readily deployable solution for incorporating 
 
 ## License
 
-EmbeddedCli is licensed under the MIT License.
+µCLI is licensed under the MIT License.
