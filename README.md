@@ -10,11 +10,11 @@ I ran into an issue where I had unit test code within a soft-processor in an FPG
 
 ## Goal
 
-The goal of EmbeddedCli is to provide a readily deployable solution for incorporating a CLI into any microcontroller-based project with minimal overhead. By leveraging a standard debug interface like UART, developers can enable external control and monitoring of microcontroller functions.
+The goal of µCLI is to provide a readily deployable solution for incorporating a CLI into any microcontroller-based project with minimal overhead. By leveraging a standard debug interface like UART, developers can enable external control and monitoring of microcontroller functions.
 
 ## Usage TODO
 
-1. Include the EmbeddedCli library in your project.
+1. Include the µCLI library in your project.
 2. Configure the debug interface (UART, Ethernet, etc.) for communication with the external PC.
 3. ...
 
