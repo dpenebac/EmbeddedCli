@@ -45,19 +45,18 @@ int main() {
     if (!found) {
       printf("Command not found\n");
     } else {
-      void (*func)() = f.functions[index].func;
       switch (f.functions[index].func_input_count) {
       case 0:
-        func();
+        ((void (*)())f.functions[index].func)();
         break;
       case 1:
         uRunRecieve(d, &a);
-        func(a);
+        ((void (*)(int))f.functions[index].func)(a);
         break;
       case 2:
         uRunRecieve(d, &a);
         uRunRecieve(d, &b);
-        func(a, b);
+        ((void (*)(int, int))f.functions[index].func)(a, b);
         break;
       }
     }
