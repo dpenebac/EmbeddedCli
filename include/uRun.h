@@ -6,3 +6,8 @@ struct function_holder {
     const char *tag;
   } functions[3];
 };
+
+// blocking recieve, meant to be overwritten
+#ifndef uRunRecieve
+  #define uRunRecieve(type, variable) scanf("%" #type, variable)
+#endif
