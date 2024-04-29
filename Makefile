@@ -1,5 +1,5 @@
 CC = gcc
-CFLAGS = -Wall -Iinclude
+CFLAGS = -Wall -D uRunCustomRecieve -Iinclude 
 
 SRCDIR = src
 INCDIR = include

@@ -7,8 +7,12 @@ struct function_holder {
 };
 
 // blocking recieve, meant to be overwritten
-#ifndef uRunRecieve
+// #define uRunRecieveDefined // currently doesn't work
+#ifndef uRunRecieveDefined
   #define uRunRecieve(type, variable) scanf("%" #type, variable)
+#else
+  void uRunRecieve(int type, char *msg);
 #endif
 
 void uRunSend(char *msg);
+void uRunStart(struct function_holder f[]);
