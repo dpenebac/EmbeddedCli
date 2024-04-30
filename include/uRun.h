@@ -10,7 +10,7 @@ typedef enum {
 
 struct function_holder {
   void *func;
-  int func_input_types[10]; // use this to determine what type of inputs the
+  RET_TYPE func_input_types[10]; // use this to determine what type of inputs the
                             // func has
   RET_TYPE func_return_types;
   int func_input_count;
