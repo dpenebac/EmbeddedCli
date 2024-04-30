@@ -3,6 +3,7 @@
 #include <string.h>
 
 typedef enum {
+  NONE,
   VOID,
   INT,
   FLOAT,

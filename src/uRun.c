@@ -31,14 +31,14 @@ void uRunStart(struct function_holder f[]) {
       ret = uRunRunFunc(f[index]);
     }
 
-    printf("%d\n", ret);
+    printf("%d %f\n", ret, (float)ret);
   }
 }
 
 #define uRunFuncReturnType(f, types, ...)                                      \
   switch (f.func_return_types) {                                               \
   case VOID:                                                                   \
-    ((void (*) types)f.func)(__VA_ARGS__);                                         \
+    ((void(*) types)f.func)(__VA_ARGS__);                                      \
     break;                                                                     \
   case INT:                                                                    \
     intVal = ((int(*) types)f.func)(__VA_ARGS__);                              \
@@ -48,43 +48,36 @@ void uRunStart(struct function_holder f[]) {
     floatVal = ((float(*) types)f.func)(__VA_ARGS__);                          \
     return (uint32_t)floatVal;                                                 \
     break;                                                                     \
+  default:                                                                     \
+    break;                                                                     \
   }
 
-#define uRunFuncInputCount(f, argc, ...)                                       \
-  switch (argc) {                                                              \
-  case 1:                                                                      \
-    uRunFuncReturnType(f, __VA_ARGS__);                                        \
-    break;                                                                     \
-  case 2:                                                                      \
-    uRunFuncReturnType(f, __VA_ARGS__);                                        \
-    break;                                                                     \
-  }
+#define uRunFuncInputCount(f, argc, types, ...)                                \
+  uRunFuncReturnType(f, types, __VA_ARGS__);
 
 uint32_t uRunRunFunc(struct function_holder f) {
 
   // return types first, 1 input, int input type
-  int a;
-  float b;
+  int a, b, c, d, e;
+  float g, h, i, j, l;
   int intVal = 0;
   float floatVal = 0.0;
-  uRunRecieve(d, &a);
-  uRunRecieve(f, &b);
 
-  uRunFuncInputCount(f, 2, (int, float), a, b);
+  switch (f.func_input_count) {
+  case 2:
+    switch (f.func_input_types[0]) {
+    case INT:
+      uRunRecieve(d, &a);
+    }
+    switch (f.func_input_types[1]) {
+    case FLOAT:
+      uRunRecieve(f, &l);
+    }
+    uRunFuncInputCount(f, 2, (int, float), a, l); // NEED TO BE ABLE TO GENERATE THIS IN MACRO
+    break;
+  }
 
-  // switch (f.func_return_types) {
-  // case VOID:
-  //   ((void (*)())f.func)(a);
-  //   break;
-  // case INT:
-  //   intVal = ((int (*)())f.func)(a);
-  //   return (uint32_t)intVal;
-  //   break;
-  // case FLOAT:
-  //   floatVal = ((float (*)())f.func)(a);
-  //   return (uint32_t)floatVal;
-  //   break;
-  // }
+  // uRunFuncInputTypes(f, 2, (int, float));
 
   return -1;
 }
