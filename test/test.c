@@ -27,9 +27,9 @@ void waitlong() { printf("WaitLong function called with NONE\n"); }
 
 int main() {
   static struct function_holder f[3] = {
-      {test, {sizeof(int)}, sizeof(int), 1, "test"},
-      {wait, {sizeof(int)}, 0, 2, "wait"},
-      {waitlong, {0}, 0, 0, "waitlong"}};
+      {test, {sizeof(int)}, INT, 1, "test"},
+      {wait, {sizeof(int)}, VOID, 2, "wait"},
+      {waitlong, {0}, VOID, 0, "waitlong"}};
 
   uRunStart(f);
 
