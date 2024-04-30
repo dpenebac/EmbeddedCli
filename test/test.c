@@ -35,7 +35,7 @@ int main() {
   static struct function_holder f[4] = {
       {test, {sizeof(int)}, INT, 1, "test"},
       {test_float, {sizeof(int)}, FLOAT, 1, "test_float"},
-      {wait, {sizeof(int)}, VOID, 2, "wait"},
+      {wait, {sizeof(int), sizeof(float)}, VOID, 2, "wait"},
       {waitlong, {0}, VOID, 0, "waitlong"}};
 
   uRunStart(f);

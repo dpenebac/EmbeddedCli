@@ -31,19 +31,14 @@ void uRunStart(struct function_holder f[]) {
       ret = uRunRunFunc(f[index]);
     }
 
-    if (f[index].func_return_types == INT) {
-      printf("Ret Val = %d\n", ret);
-    } else if (f[index].func_return_types == FLOAT) {
-      printf("Ret Val = %f\n", (float)ret);
-    }
+    printf("%d\n", ret);
   }
 }
 
 #define uRunFuncReturnType(f, types, ...)                                      \
   switch (f.func_return_types) {                                               \
   case VOID:                                                                   \
-    printf("Here\n"); \
-    ((void (*)())f.func)(__VA_ARGS__);                                         \
+    ((void (*) types)f.func)(__VA_ARGS__);                                         \
     break;                                                                     \
   case INT:                                                                    \
     intVal = ((int(*) types)f.func)(__VA_ARGS__);                              \
@@ -56,7 +51,6 @@ void uRunStart(struct function_holder f[]) {
   }
 
 #define uRunFuncInputCount(f, argc, ...)                                       \
-  printf("%d\n", argc);                                                        \
   switch (argc) {                                                              \
   case 1:                                                                      \
     uRunFuncReturnType(f, __VA_ARGS__);                                        \
@@ -76,7 +70,6 @@ uint32_t uRunRunFunc(struct function_holder f) {
   uRunRecieve(d, &a);
   uRunRecieve(f, &b);
 
-  printf("%d %f\n", b, b);
   uRunFuncInputCount(f, 2, (int, float), a, b);
 
   // switch (f.func_return_types) {
