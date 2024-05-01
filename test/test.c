@@ -4,27 +4,27 @@
 
 #include "uRun.h"
 
-int test(int x);
-float test_float(int x);
-void wait(int x, float y);
+int test();
+float test_float();
+void wait();
 void waitlong();
 
-int test(int x) {
-  printf("Test function called with %d\n", x);
-  return x + 1;
+int test() {
+  printf("Test function called.\n");
+  return 0;
 }
 
-float test_float(int x) {
-  printf("Test_Float function called with %d\n", x);
-  return (float)(x + 1);
+float test_float() {
+  printf("Test_Float function called.\n");
+  return 0.0;
 }
 
-void wait(int x, float y) { printf("Wait function called with %d %f\n", x, y); }
+void wait() { printf("Wait function called.\n"); }
 
-void waitlong() { printf("WaitLong function called with NONE\n"); }
+void waitlong() { printf("WaitLong function called.\n"); }
 
 // placed on hold, doesn't work
-// #ifdef uRunRecieveDefined 
+// #ifdef uRunRecieveDefined
 //   void uRunRecieve(int type, char *msg) {
 //     scanf("%s", msg);
 //     return;
@@ -33,10 +33,10 @@ void waitlong() { printf("WaitLong function called with NONE\n"); }
 
 int main() {
   static struct function_holder f[4] = {
-      {test, {sizeof(int)}, INT, 1, "test"},
-      {test_float, {sizeof(int)}, FLOAT, 1, "test_float"},
-      {wait, {INT, FLOAT}, VOID, 2, "wait"},
-      {waitlong, {0}, VOID, 0, "waitlong"}};
+      addFunc(test, INT),
+      {test_float, FLOAT, "test_float"},
+      {wait, VOID, "wait"},
+      {waitlong, VOID, "waitlong"}};
 
   uRunStart(f);
 

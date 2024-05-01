@@ -3,7 +3,6 @@
 #include <string.h>
 
 typedef enum {
-  NONE,
   VOID,
   INT,
   FLOAT,
@@ -11,10 +10,7 @@ typedef enum {
 
 struct function_holder {
   void *func;
-  RET_TYPE func_input_types[10]; // use this to determine what type of inputs the
-                            // func has
   RET_TYPE func_return_types;
-  int func_input_count;
   const char *tag;
 };
 
@@ -25,6 +21,9 @@ struct function_holder {
 #else
 void uRunRecieve(int type, char *msg);
 #endif
+
+#define addFunc(func, type)                                                    \
+  { func, type, #func }
 
 void uRunSend(char *msg);
 void uRunStart(struct function_holder f[]);
