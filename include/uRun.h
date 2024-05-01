@@ -11,6 +11,7 @@ typedef enum {
 struct function_holder {
   void *func;
   RET_TYPE func_return_types;
+  RET_TYPE func_input_types;
   const char *tag;
 };
 
@@ -22,8 +23,8 @@ struct function_holder {
 void uRunRecieve(int type, char *msg);
 #endif
 
-#define addFunc(func, type)                                                    \
-  { func, type, #func }
+#define addFunc(func, ret_type, input_type)                                                    \
+  { func, ret_type, input_type, #func }
 
 void uRunSend(char *msg);
 void uRunStart(struct function_holder f[]);
